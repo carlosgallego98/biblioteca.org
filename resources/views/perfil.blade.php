@@ -1,13 +1,15 @@
 @extends('layouts.app')
 @section('title','Mi Perfil | '.auth()->user()->name)
+
 @section('content')
 @include('modals.cambiar_contraseña')
+@include('modals.editar_perfil')
 <div class="container">
     <div class="row my-2">
         <div class="col-lg-12 card card-body shadow-sm">
             <div class="row mb-4">
                 <div class="col-lg-4 mx-auto">
-                    <img src="{{ auth()->user()->getAvatar() }}" alt="" class="img-fluid">
+                    <img src="{{ auth()->user()->getAvatar() }}" alt="" class="img-fluid rounded-circle shadow">
                 </div>
             </div>
             <hr>
@@ -31,7 +33,8 @@
                         <a href="#" class="btn btn-danger nav-item m-1" data-toggle="modal" data-target="#modal-cambiar-contraseña"><i class="fa fa-key"></i>
                             Cambiar Contraseña
                         </a>
-                        <a href="#" class="btn btn-danger nav-item m-1"><i class="fa fa-pencil"></i>
+                        <a href="#" class="btn btn-danger nav-item m-1" data-toggle="modal" data-target="#modal-editar-perfil">
+                          <i class="fa fa-pencil"></i>
                             Editar Perfil
                         </a>
                     </ul>

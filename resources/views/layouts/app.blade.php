@@ -22,6 +22,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+    @stack('styles')
+
 </head>
 <body>
     <header class="{{ (Request::is("/")) ? "landing" : "" }}">
@@ -136,28 +138,32 @@
         </a>
     </header>
 
-    @if(session()->has('msj'))
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
-            <div class="col-md-12 text-white">
+            <div class="col-md-12">
+              @if(session()->has('msj'))
                     <div class="alert alert-success" role="alert" data-dimiss="alert">
                       {{session('msj')}}
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                      </button>          </div>
+                      </button>
+                    </div>
                       @elseif(count($errors) > 0)
                       <div class="alert alert-danger" role="alert" data-dimiss="alert">
-                        <h6 class="font-weight-bold">Por favor corrija los siguientes errores:</h6>
+                        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+                        <h6 class="font-weight-bold text-white">Por favor corrija los siguientes errores:</h6>
                         <ul>
                           @foreach($errors->all() as $error)
                           <li>{{$error}}</li>
                           @endforeach
                         </ul>
                       </div>
+                    @endif
             </div>
         </div>
     </div>
-    @endif
 
     @yield('content')
 
@@ -196,6 +202,7 @@
                     <!-- Argon JS -->
                     <script src={{ asset("assets/js/argon.min.js")}}></script>
                     <script src={{ asset("assets/js/main.js") }}></script>
+                    @stack('scripts')
                 </footer>
 
             </body>

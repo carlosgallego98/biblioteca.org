@@ -37,7 +37,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-key"></i></span>
                             </div>
-                            <input class="form-control form-control-alternative" name="confirmation" type="password" required autocomplete="current-password"
+                            <input class="form-control form-control-alternative" name="new_confirmation" type="password" required autocomplete="current-password"
                             placeholder="Confirmar Contraseña">
                         </div>
                     </div>
@@ -46,7 +46,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="submit" form="form-cambiar-contraseña" class="btn btn-success">Guardar</button>
+                <button type="submit" form="form-cambiar-contraseña" class="btn btn-success">
+                  <i class="fa fa-save"></i>
+                  Guardar
+                </button>
                 <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Cancelar</button>
             </div>
 

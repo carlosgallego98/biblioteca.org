@@ -18,6 +18,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth:web'],function(){
     Route::get('perfil','HomeController@perfil')->name('perfil');
     Route::post('cambiar-contraseña', 'ProfileController@cambiarContraseña');
+    Route::post('cambiar-imagen-perfil', 'ProfileController@cambiarAvatar');
+    // Route::post('editar-imagen', 'ProfileController@cambiarContraseña');
 });
 
 Route::group(['prefix' => 'panel'], function () {
